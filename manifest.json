@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "AI Translator",
+  "name": "AI 翻译助手",
   "version": "1.0.0",
-  "description": "AI-powered translation and summarization for any webpage. Supports full-page translation, word selection translation, and page summarization.",
+  "description": "AI 驱动的网页翻译与总结工具。支持全页面翻译、划词翻译、网页内容总结。兼容 OpenAI 协议接口。",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["<all_urls>"],
   "action": {
@@ -12,7 +12,7 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "AI Translator"
+    "default_title": "AI 翻译助手"
   },
   "background": {
     "service_worker": "background/background.js"
