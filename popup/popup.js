@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var btnTranslate = document.getElementById('btnTranslate');
   var btnSummarize = document.getElementById('btnSummarize');
   var btnRestore = document.getElementById('btnRestore');
+  var btnDashboard = document.getElementById('btnDashboard');
 
   var defaults = {
     apiKey: '',
@@ -194,6 +195,11 @@ document.addEventListener('DOMContentLoaded', function () {
       if (response.error) { showStatus('测试失败：' + response.error, 'error'); }
       else { showStatus('连接成功！API 工作正常。', 'success'); }
     });
+  });
+
+  // 打开管理面板
+  btnDashboard.addEventListener('click', function () {
+    chrome.tabs.create({ url: chrome.runtime.getURL('dashboard/dashboard.html') });
   });
 
   // Ctrl+S

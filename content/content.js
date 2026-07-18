@@ -182,12 +182,12 @@
 
         var translations = [];
         try {
-          var resp = await callAPI('translateBatch', { texts: texts, sourceLang: sourceLang, targetLang: targetLang });
+          var resp = await callAPI('translateBatch', { texts: texts, sourceLang: sourceLang, targetLang: targetLang, url: window.location.href });
           translations = resp.results;
         } catch (err) {
           for (var k = 0; k < texts.length; k++) {
             if (abortTranslation) break;
-            try { var r = await callAPI('translate', { text: texts[k], sourceLang: sourceLang, targetLang: targetLang }); translations.push(r.result); }
+            try { var r = await callAPI('translate', { text: texts[k], sourceLang: sourceLang, targetLang: targetLang, url: window.location.href }); translations.push(r.result); }
             catch (e2) { translations.push(texts[k]); }
           }
         }
@@ -270,7 +270,7 @@
       }
     });
 
-    callAPI('translate', { text: text, sourceLang: settings.sourceLang, targetLang: settings.targetLang })
+    callAPI('translate', { text: text, sourceLang: settings.sourceLang, targetLang: settings.targetLang, url: window.location.href })
       .then(function (res) {
         if (!selectionPopup || selectionPopup !== popup) return;
         document.getElementById('ait-stl').textContent = '译文';
@@ -322,7 +322,7 @@
         if (etaEl) etaEl.textContent = '(' + elapsed + 's)';
       }, 1000);
 
-      var resp = await callAPI('summarize', { text: content, lang: lang });
+      var resp = await callAPI('summarize', { text: content, lang: lang, url: window.location.href });
       clearInterval(etaInterval);
       if (abort) return;
 

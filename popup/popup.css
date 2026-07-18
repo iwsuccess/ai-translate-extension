@@ -31,6 +31,13 @@ body {
 .tab-btn:first-child { width: auto; padding: 0 12px; font-size: 12px; }
 .tab-btn:hover { background: rgba(255,255,255,.22); }
 .tab-btn.active { background: #fff; color: #4f46e5; }
+.header-link {
+  width: 32px; height: 32px; border: none; border-radius: 8px;
+  background: rgba(255,255,255,.12); color: rgba(255,255,255,.8);
+  font-size: 15px; cursor: pointer; transition: all .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.header-link:hover { background: rgba(255,255,255,.28); transform: scale(1.05); }
 
 /* 标签内容 */
 .tab-content { display: none; padding: 16px; }
